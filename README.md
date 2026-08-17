@@ -6,7 +6,7 @@ Instead of only checking how much filament a print uses, it also includes electr
 
 This makes it easier to price prints without guessing or making a spreadsheet for every model.
 
-<img width="2484" height="1346" alt="image" src="https://github.com/user-attachments/assets/8fb3dd60-81ca-494c-ab41-cef4a02c2f88" />
+<img width="2483" height="1347" alt="image" src="https://github.com/user-attachments/assets/85018d3c-9ce2-4b4e-bb1c-78eac293fd92" />
 
 
 ## Live Demo
