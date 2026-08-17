@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="calculate the real cost of 3D prints, including filament, electricity, machine wear, labour and profit.">
+        <title>PrintPrice 3D Print Cost Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <a class="brand" href="#top" aria-label="PrintPrice home">
+                <span class="brand-mark" aria-hidden="true"><i></i></span>
+                <span>PrintPrice</span>
+            </a>
+            <span class="header-note">Free 3D print cost calculator</span>
+        </header>
+
+        <main>
+            <section class="hero" id="top">
+                <div>
+                    <p class="eyebrow">Know what every print actually costs</p>
+                    <h1>Stop guessing your<br><em>3D print prices.</em></h1>
+
+                    <p class="hero-copy">Calculate material, electricity, machine wear and labour in seconds. No account, no spreadsheet and no hidden cost.</p>
+                </div>
+
+                <div class="layer-stack" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </section>
+
+            <section class="calculator-shell" aria-label="3D printing cost calculator">
+                <div class="form-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="step-number">01</span>
+                            <h2>Your Print</h2>
+                        </div>
+                        <button class="text-button" id="resetButton" type="button">Reset</button>
+                    </div>
+
+                    <div class="field-grid three">
+                        <label class="field" for="weight">
+                            <span>Filament used</span>
+                            <span class="input-wrap">
+                                <input id="weight" type="number" min="0" step="0.1" value="85">
+                                <small>g</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="hours">
+                            <span>Print time</span>
+                            <span class="input-wrap">
+                                <input id="hours" type="number" min="0" step="1" value="4">
+                                <small>hr</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="minutes">
+                            <span>Minutes</span>
+                            <span class="input-wrap">
+                                <input id="minutes" type="number" min="0" step="1" value="30">
+                                <small>min</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="field-grid one compact-row">
+                        <label class="field" for="quantity">
+                            <span>Number of prints</span>
+                            <span class="input-wrap">
+                                <input id="quantity" type="number" min="1" step="1" value="1">
+                                <small>prints</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <div class="panel-heading small">
+                        <div>
+                            <span class="step-number">02</span>
+                            <h2>Your costs</h2>
+                        </div>
+                    </div>
+
+                    <h3>Material</h3>
+
+                    <div class="field-grid two">
+                        <label class="field" for="spoolPrice">
+                            <span>Spool price</span>
+                            <span class="input-wrap">
+                                <input id="spoolPrice" type="number" min="0" step="0.01" value="22">
+                                <small>€</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="spoolWeight">
+                            <span>Spool weight</span>
+                            <span class="input-wrap">
+                                <input id="spoolWeight" type="number" min="1" step="1" value="1000">
+                                <small>g</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <h3>Printer and power</h3>
+
+                    <div class="field-grid two">
+                        <label class="field" for="printerPower">
+                            <span>Average power</span>
+                            <span class="input-wrap">
+                                <input id="printerPower" type="number" min="0" step="1" value="120">
+                                <small>W</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="electricityPrice">
+                            <span>Electricity price</span>
+                            <span class="input-wrap">
+                                <input id="electricityPrice" type="number" min="0" step="0.01" value="0.35">
+                                <small>€/kWh</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="printerPrice">
+                            <span>Printer price</span>
+                            <span class="input-wrap">
+                                <input id="printerPrice" type="number" min="0" step="0.01" value="300">
+                                <small>€</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="printerLifetime">
+                            <span>Expected lifetime</span>
+                            <span class="input-wrap">
+                                <input id="printerLifetime" type="number" min="1" step="1" value="3000">
+                                <small>hr</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <h3>Time and risk</h3>
+
+                    <div class="field-grid two">
+                        <label class="field" for="labourMinutes">
+                            <span>Hands-on time</span>
+                            <span class="input-wrap">
+                                <input id="labourMinutes" type="number" min="0" step="1" value="15">
+                                <small>min</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="hourlyRate">
+                            <span>Your hourly rate</span>
+                            <span class="input-wrap">
+                                <input id="hourlyRate" type="number" min="0" step="0.5" value="12">
+                                <small>€/hr</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="failureRate">
+                            <span>Failed print allowance</span>
+                            <span class="input-wrap">
+                                <input id="failureRate" type="number" min="0" step="1" value="10">
+                                <small>%</small>
+                            </span>
+                        </label>
+
+                        <label class="field" for="markup">
+                            <span>Profit markup</span>
+                            <span class="input-wrap">
+                                <input id="markup" type="number" min="0" step="1" value="30">
+                                <small>%</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <button class="save-button" id="saveButton" type="button">Save these settings</button>
+
+                    <p class="privacy-note">Saved only on this device.</p>
+                </div>
+
+                <aside class="results-panel" aria-live="polite">
+                    <div class="results-sticky">
+                        <span class="step-number light">03</span>
+                        <p class="result-label">Suggested price</p>
+
+                        <div class="main-price" id="totalPrice">€0.00</div>
+                        <p class="per-print" id="perPrintPrice">€0.00 per print</p>
+
+                        <div class="price-rule"></div>
+
+                        <div class="summary-row">
+                            <span>Production cost</span>
+                            <strong id="totalCost">€0.00</strong>
+                        </div>
+
+                        <div class="summary-row profit-row">
+                            <span>Estimated profit</span>
+                            <strong id="profit">€0.00</strong>
+                        </div>
+
+                        <div class="breakdown">
+                            <h3>Cost breakdown</h3>
+
+                            <div class="breakdown-item">
+                                <div>
+                                    <span>Filament</span>
+                                    <strong id="filamentCost">€0.00</strong>
+                                </div>
+                                <span class="bar-track"><i class="coral" id="filamentBar"></i></span>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div>
+                                    <span>Electricity</span>
+                                    <strong id="electricityCost">€0.00</strong>
+                                </div>
+                                <span class="bar-track"><i class="blue" id="electricityBar"></i></span>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div>
+                                    <span>Machine wear</span>
+                                    <strong id="wearCost">€0.00</strong>
+                                </div>
+                                <span class="bar-track"><i class="purple" id="wearBar"></i></span>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div>
+                                    <span>Labour</span>
+                                    <strong id="labourCost">€0.00</strong>
+                                </div>
+                                <span class="bar-track"><i class="green" id="labourBar"></i></span>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div>
+                                    <span>Failure allowance</span>
+                                    <strong id="failureCost">€0.00</strong>
+                                </div>
+                                <span class="bar-track"><i class="yellow" id="failureBar"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="calculation-note">
+                            <strong id="totalHours">0.0 hours</strong>
+                            <span>Total print time per item</span>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="how-it-works">
+                <p class="eyebrow">What is included</p>
+                <h2>A quote that covers more than plastic.</h2>
+
+                <div class="feature-grid">
+                    <article>
+                        <span>01</span>
+                        <h3>Real material cost</h3>
+                        <p>Uses the exact weight of the model and price of your filament spool.</p>
+                    </article>
+
+                    <article>
+                        <span>02</span>
+                        <h3>Running costs</h3>
+                        <p>Adds electricity and spreads the price of your printer across its working life.</p>
+                    </article>
+
+                    <article>
+                        <span>03</span>
+                        <h3>Your time and profit</h3>
+                        <p>Includes hands-on labour, failed prints and the markup you want to earn.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <a class="brand footer-brand" href="#top">
+                <span class="brand-mark" aria-hidden="true"><i></i></span>
+                <span>PrintPrice</span>
+            </a>
+
+            <p>Open-source and built for makers.</p>
+
+            <div class="footer-bottom" style="display: none;">
+                <div class="pc-credit" aria-label="Website by PixelCork">
+                  <a href="https://pixelcork.eu/" class="pc-credit-link" title="PixelCork - Web design Cork" target="_blank" rel="noopener noreferrer">Website by Pixelcork</a>
+                  <span class="pc-credit-sep" aria-hidden="true">•</span>
+                  <a href="https://pixelcork.eu/portfolio.html" class="pc-credit-link" target="_blank" rel="noopener noreferrer">Portfolio</a>
+                </div>
+
+                <style>
+                    .pc-credit{--pc-accent:#44BB88;display:inline-flex;gap:.5rem;align-items:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:0.9rem;color:#9fb0c2}
+                    .pc-credit .pc-credit-link{color:inherit;text-decoration:none;padding:6px 8px;border-radius:6px;font-weight:600;transition:background .18s,transform .12s}
+                    .pc-credit .pc-credit-link:hover{background:rgba(68,187,136,0.08);color:var(--pc-accent);transform:translateY(-1px)}
+                    .pc-credit .pc-credit-sep{color:#4b6070;font-weight:700}
+                    @media (prefers-reduced-motion:reduce){.pc-credit .pc-credit-link{transition:none}}
+                </style>
+                <p>&copy; 2026 PixelCork. All rights reserved. Handcrafted in Cork, Ireland.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
