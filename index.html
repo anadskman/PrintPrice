@@ -13,24 +13,33 @@
                 <span class="brand-mark" aria-hidden="true"><i></i></span>
                 <span>PrintPrice</span>
             </a>
-            <span class="header-note">Free 3D print cost calculator</span>
+            <span class="header-note"><i aria-hidden="true"></i> Bench tool / EUR</span>
         </header>
 
         <main>
             <section class="hero" id="top">
-                <div>
-                    <p class="eyebrow">Know what every print actually costs</p>
-                    <h1>Stop guessing your<br><em>3D print prices.</em></h1>
+                <div class="hero-copy-block">
+                    <p class="eyebrow">From STL to a fair quote</p>
+                    <h1>Price the print.<br><em>Not just the plastic.</em></h1>
 
-                    <p class="hero-copy">Calculate material, electricity, machine wear and labour in seconds. No account, no spreadsheet and no hidden cost.</p>
+                    <p class="hero-copy">I made this after one too many “how much for this?” messages. Add the numbers from your slicer and get a price that covers the spool, the printer, your time and the prints that don't make it.</p>
+
+                    <div class="hero-notes" aria-label="Calculator highlights">
+                        <span>No sign-up</span>
+                        <span>Saved on your device</span>
+                        <span>Nothing sent anywhere</span>
+                    </div>
                 </div>
 
-                <div class="layer-stack" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="print-preview" aria-label="Example slicer preview illustration">
+                    <div class="preview-top"><span>PRINT_042.GCODE</span><span>READY</span></div>
+                    <div class="build-plate" aria-hidden="true">
+                        <div class="print-part"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                    <div class="preview-stats">
+                        <span><small>FILAMENT</small>85 g</span>
+                        <span><small>EST. TIME</small>4h 30m</span>
+                    </div>
                 </div>
             </section>
 
@@ -38,8 +47,8 @@
                 <div class="form-panel">
                     <div class="panel-heading">
                         <div>
-                            <span class="step-number">01</span>
-                            <h2>Your Print</h2>
+                            <span class="step-number">INPUT 01</span>
+                            <h2>What the slicer says</h2>
                         </div>
                         <button class="text-button" id="resetButton" type="button">Reset</button>
                     </div>
@@ -84,8 +93,8 @@
 
                     <div class="panel-heading small">
                         <div>
-                            <span class="step-number">02</span>
-                            <h2>Your costs</h2>
+                            <span class="step-number">INPUT 02</span>
+                            <h2>What your bench costs</h2>
                         </div>
                     </div>
 
@@ -188,8 +197,11 @@
 
                 <aside class="results-panel" aria-live="polite">
                     <div class="results-sticky">
-                        <span class="step-number light">03</span>
-                        <p class="result-label">Suggested price</p>
+                        <div class="quote-heading">
+                            <span class="step-number light">QUOTE 03</span>
+                            <span id="quoteStatus">LIVE ESTIMATE</span>
+                        </div>
+                        <p class="result-label">Put this on the quote</p>
 
                         <div class="main-price" id="totalPrice">€0.00</div>
                         <p class="per-print" id="perPrintPrice">€0.00 per print</p>
@@ -259,26 +271,26 @@
             </section>
 
             <section class="how-it-works">
-                <p class="eyebrow">What is included</p>
-                <h2>A quote that covers more than plastic.</h2>
+                <p class="eyebrow">Under the build plate</p>
+                <h2>The maths I kept forgetting.</h2>
 
                 <div class="feature-grid">
                     <article>
-                        <span>01</span>
-                        <h3>Real material cost</h3>
-                        <p>Uses the exact weight of the model and price of your filament spool.</p>
+                        <span>SPOOL</span>
+                        <h3>The obvious bit</h3>
+                        <p>Model weight × your real cost per gram. Simple, but only part of the story.</p>
                     </article>
 
                     <article>
-                        <span>02</span>
-                        <h3>Running costs</h3>
-                        <p>Adds electricity and spreads the price of your printer across its working life.</p>
+                        <span>MACHINE</span>
+                        <h3>The quiet costs</h3>
+                        <p>Power use and a little of the printer's purchase price for every hour it runs.</p>
                     </article>
 
                     <article>
-                        <span>03</span>
-                        <h3>Your time and profit</h3>
-                        <p>Includes hands-on labour, failed prints and the markup you want to earn.</p>
+                        <span>YOU</span>
+                        <h3>The part people miss</h3>
+                        <p>Setup time, failed-print risk and a profit margin—because your time isn't free.</p>
                     </article>
                 </div>
             </section>
@@ -290,7 +302,7 @@
                 <span>PrintPrice</span>
             </a>
 
-            <p>Open-source and built for makers.</p>
+            <p>Built for makers who are tired of answering “just the filament cost, right?”</p>
 
             <div class="footer-bottom" style="display: none;">
                 <div class="pc-credit" aria-label="Website by PixelCork">

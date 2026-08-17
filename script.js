@@ -139,10 +139,13 @@ function saveSettings() {
   localStorage.setItem("printprice-settings", JSON.stringify(settings));
 
   const saveButton = document.getElementById("saveButton");
+  const quoteStatus = document.getElementById("quoteStatus");
   saveButton.textContent = "Settings saved";
+  quoteStatus.textContent = "RATES SAVED";
 
   setTimeout(() => {
     saveButton.textContent = "Save these settings";
+    quoteStatus.textContent = "LIVE ESTIMATE";
   }, 1800);
 }
 
