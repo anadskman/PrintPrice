@@ -6,11 +6,12 @@ Instead of only checking how much filament a print uses, it also includes electr
 
 This makes it easier to price prints without guessing or making a spreadsheet for every model.
 
-![PrintPrice calculator](images/printprice.png)
+<img width="2483" height="1347" alt="image" src="https://github.com/user-attachments/assets/85018d3c-9ce2-4b4e-bb1c-78eac293fd92" />
+
 
 ## Live Demo
 
-[Try PrintPrice](printprice.netlify.app)
+[Try PrintPrice](https://printpricecalc.netlify.app)
 
 ## Features
 
